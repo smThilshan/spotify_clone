@@ -13,13 +13,13 @@ class BasicAppButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: ElevatedButton(
-        child: Text(
-          title,
-          style: TextStyle(color: Colors.white),
-        ),
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           minimumSize: Size.fromHeight(height ?? 80),
+        ),
+        child: Text(
+          title,
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
