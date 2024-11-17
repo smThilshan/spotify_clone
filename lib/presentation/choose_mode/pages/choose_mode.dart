@@ -79,7 +79,8 @@ class ChooseModeScreen extends StatelessWidget {
                               height: 80,
                               width: 80,
                               decoration: BoxDecoration(
-                                  color: Color(0xff30393c).withOpacity(0.5),
+                                  color:
+                                      const Color(0xff30393c).withOpacity(0.5),
                                   shape: BoxShape.circle),
                               child: SvgPicture.asset(
                                 AppVectors.moon,
@@ -88,8 +89,8 @@ class ChooseModeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
-                        Text(
+                        const SizedBox(height: 10),
+                        const Text(
                           "Dark Mode",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
@@ -99,7 +100,7 @@ class ChooseModeScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 40,
                     ),
                     Column(
@@ -111,7 +112,8 @@ class ChooseModeScreen extends StatelessWidget {
                               height: 80,
                               width: 80,
                               decoration: BoxDecoration(
-                                  color: Color(0xff30393c).withOpacity(0.5),
+                                  color:
+                                      const Color(0xff30393c).withOpacity(0.5),
                                   shape: BoxShape.circle),
                               child: SvgPicture.asset(
                                 AppVectors.sun,
@@ -120,8 +122,8 @@ class ChooseModeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
-                        Text(
+                        const SizedBox(height: 10),
+                        const Text(
                           "Light Mode",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
