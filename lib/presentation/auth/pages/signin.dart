@@ -3,15 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/buttons/basic_app_button.dart';
 import 'package:spotify/core/config/assets/app_vectors.dart';
-import 'package:spotify/presentation/auth/pages/signin.dart';
+import 'package:spotify/presentation/auth/pages/signup.dart';
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+class SigninScreen extends StatelessWidget {
+  const SigninScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _signinText(context),
+      bottomNavigationBar: _signupText(context),
       appBar: BasicAppBar(
         title: SvgPicture.asset(
           AppVectors.logo,
@@ -26,13 +26,11 @@ class SignupScreen extends StatelessWidget {
           children: [
             _registerText(),
             const SizedBox(height: 50),
-            _fullNameField(context),
-            const SizedBox(height: 20),
-            _emailField(context),
+            _nameUsernameField(context),
             const SizedBox(height: 20),
             _passwordField(context),
             const SizedBox(height: 20),
-            BasicAppButton(onPressed: () {}, title: "Create Account")
+            BasicAppButton(onPressed: () {}, title: "Sign In")
           ],
         ),
       ),
@@ -48,16 +46,9 @@ Widget _registerText() {
   );
 }
 
-Widget _fullNameField(BuildContext context) {
+Widget _nameUsernameField(BuildContext context) {
   return TextField(
-    decoration: const InputDecoration(hintText: "Full Name")
-        .applyDefaults(Theme.of(context).inputDecorationTheme),
-  );
-}
-
-Widget _emailField(BuildContext context) {
-  return TextField(
-    decoration: const InputDecoration(hintText: "Enter Email")
+    decoration: const InputDecoration(hintText: "Enter Username Or Email")
         .applyDefaults(Theme.of(context).inputDecorationTheme),
   );
 }
@@ -69,14 +60,14 @@ Widget _passwordField(BuildContext context) {
   );
 }
 
-Widget _signinText(BuildContext context) {
+Widget _signupText(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 35),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text(
-          "Do you have an account?",
+          "Not A Member?",
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
         ),
         TextButton(
@@ -84,9 +75,9 @@ Widget _signinText(BuildContext context) {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const SigninScreen()));
+                      builder: (BuildContext context) => const SignupScreen()));
             },
-            child: const Text("Sign In"))
+            child: const Text("Register Now"))
       ],
     ),
   );
