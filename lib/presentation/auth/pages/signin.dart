@@ -40,7 +40,7 @@ class SigninScreen extends StatelessWidget {
 
 Widget _registerText() {
   return const Text(
-    "Register",
+    "Sign In",
     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
     textAlign: TextAlign.center,
   );
@@ -72,7 +72,7 @@ Widget _signupText(BuildContext context) {
         ),
         TextButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (BuildContext context) => const SignupScreen()));

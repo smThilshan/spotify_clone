@@ -81,7 +81,7 @@ Widget _signinText(BuildContext context) {
         ),
         TextButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (BuildContext context) => const SigninScreen()));
