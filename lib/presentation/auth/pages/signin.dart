@@ -75,7 +75,7 @@ Widget _signupText(BuildContext context) {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const SignupScreen()));
+                      builder: (BuildContext context) => SignupScreen()));
             },
             child: const Text("Register Now"))
       ],
