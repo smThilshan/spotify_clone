@@ -29,40 +29,42 @@ class SignupScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _registerText(),
-            const SizedBox(height: 50),
-            _fullNameField(context),
-            const SizedBox(height: 20),
-            _emailField(context),
-            const SizedBox(height: 20),
-            _passwordField(context),
-            const SizedBox(height: 20),
-            BasicAppButton(
-                onPressed: () async {
-                  var result = await sl<SignupUseCase>().call(
-                      params: CreateUserReq(
-                          fullName: _fullName.text.toString(),
-                          email: _email.text.toString(),
-                          password: _password.text.toString()));
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _registerText(),
+              const SizedBox(height: 50),
+              _fullNameField(context),
+              const SizedBox(height: 20),
+              _emailField(context),
+              const SizedBox(height: 20),
+              _passwordField(context),
+              const SizedBox(height: 20),
+              BasicAppButton(
+                  onPressed: () async {
+                    var result = await sl<SignupUseCase>().call(
+                        params: CreateUserReq(
+                            fullName: _fullName.text.toString(),
+                            email: _email.text.toString(),
+                            password: _password.text.toString()));
 
-                  result.fold((ifLeft) {
-                    var snackbar = SnackBar(content: Text("l"));
-                    ScaffoldMessenger.of(context).showSnackBar(snackbar);
-                  }, (ifRight) {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => RootScreen()),
-                        (route) => false);
-                    // var snackbar = SnackBar(content: Text("r"));
-                    // ScaffoldMessenger.of(context).showSnackBar(snackbar);
-                  });
-                },
-                title: "Create Account")
-          ],
+                    result.fold((ifLeft) {
+                      var snackbar = SnackBar(content: Text("l"));
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                    }, (ifRight) {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => RootScreen()),
+                          (route) => false);
+                      // var snackbar = SnackBar(content: Text("r"));
+                      // ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                    });
+                  },
+                  title: "Create Account")
+            ],
+          ),
         ),
       ),
     );
@@ -115,8 +117,7 @@ class SignupScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const SigninScreen()));
+                        builder: (BuildContext context) => SigninScreen()));
               },
               child: const Text("Sign In"))
         ],
